@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import ImageDetail from '../components/ImageDetail';
+//import ImageDetail from '../src/components/ImageDetail';
 
 const ImageScreen = () => {
   return (

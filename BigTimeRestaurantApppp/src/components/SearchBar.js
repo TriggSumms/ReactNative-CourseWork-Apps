@@ -1,11 +1,14 @@
 import React from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
-import { Feather } from '@expo/vector-icons';
+//import { Feather } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons'; 
 
 const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
   return (
+
     <View style={styles.backgroundStyle}>
-      <Feather name="search" style={styles.iconStyle} />
+      {/* <Feather name="search" style={styles.iconStyle} /> */}
+      <FontAwesome5 name="searchengin" style={styles.iconStyle} />
       <TextInput
         autoCapitalize="none"
         autoCorrect={false}
@@ -35,9 +38,10 @@ const styles = StyleSheet.create({
   },
   iconStyle: {
     fontSize: 35,
-    alignSelf: 'center',
+    alignSelf: 'center', //*on child
     marginHorizontal: 15
   }
+
 });
 
 export default SearchBar;

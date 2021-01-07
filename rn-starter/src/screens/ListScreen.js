@@ -1,38 +1,49 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { Text, StyleSheet, View, FlatList } from 'react-native';
 
 const ListScreen = () => {
-  const friends = [
-    { name: 'Friend #1', age: 20 },
-    { name: 'Friend #2', age: 21 },
-    { name: 'Friend #3', age: 22 },
-    { name: 'Friend #4', age: 23 },
-    { name: 'Friend #5', age: 24 },
-    { name: 'Friend #6', age: 25 },
-    { name: 'Friend #7', age: 26 },
-    { name: 'Friend #8', age: 27 },
-    { name: 'Friend #9', age: 28 }
-  ];
+    //strings not numbers as keys
+    const buddies = [
+        //key method1:
+        { name: 'Friend #1', age: 33,  key: '1' },
+        { name: 'Friend #2', age: 44,  key: '2' },
+        { name: 'Friend #3', age: 55,  key: '3' },
+        { name: 'Friend #4', age: 32,  key: '4' },
+        { name: 'Friend #5', age: 35,  key: '5' },
+        { name: 'Friend #6', age: 78,  key: '6' },
+        { name: 'Friend #7', age: 101,  key: '7' }
+        // { name: 'Friend #1' },
+        // { name: 'Friend #2' },
+        // { name: 'Friend #3' },
+        // { name: 'Friend #4' },
+        // { name: 'Friend #5' },
+        // { name: 'Friend #6' },
+        // { name: 'Friend #7' }
+    ];
+    //FlatList element, turns array into a list of elements or as formally undertood in react.js....were "mapping"
 
-  return (
-    <FlatList
-      keyExtractor={friend => friend.name}
-      data={friends}
-      renderItem={({ item }) => {
-        return (
-          <Text style={styles.textStyle}>
-            {item.name} - Age {item.age}
-          </Text>
-        );
-      }}
-    />
-  );
+    return (
+        <FlatList
+            //KeyMethod2:
+            // keyExtractor={(buddy) => buddy.name}
+
+           // horozontial //Controls list grid axis
+           // showsHorizontalScrollIndicator={false} // Scrollbar Vanish Control 
+            data={buddies}
+            renderItem={({ item }) => {
+                //buddies 
+                //item = 1 buddy
+                return <Text style={styles.textStyle}>{item.name}- Age {item.Age}</Text>;
+            }}
+        />
+    );
+
 };
 
 const styles = StyleSheet.create({
-  textStyle: {
-    marginVertical: 50
-  }
+    textStyle: {
+        marginVertical: 50
+    }
 });
 
 export default ListScreen;
