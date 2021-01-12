@@ -7,6 +7,7 @@ import ResultsList from '../components/ResultsList'
 
 
 const SearchScreen = () => {
+  // console.log('test2', props)
   const [term, setTerm] = useState('');
   const [searchApi, results, errorMessage] = useResults();
 
@@ -21,24 +22,27 @@ const SearchScreen = () => {
 
 
   return (
-    <View>
+    // <View>
+    <>
       <SearchBar
         term={term}
         onTermChange={setTerm}
         onTermSubmit={() => searchApi(term)}
       />
-      <Text>We have Found: {results.length} results</Text>
+      {/* <Text>We have Found: {results.length} results</Text> */}
       {errorMessage ? <Text>{errorMessage}</Text> : null}
       <ResultsList title="Cost is Real Low" results={filterResultsByPrice('$')} />
       <ResultsList title="Cost is gonna set you back" results={filterResultsByPrice('$$')} />
       <ResultsList title="Cost is...slide your paycheck accross the table" results={filterResultsByPrice('$$$')} />
-    </View>
+      {/* <ResultsList title="Bottom Line....you cant afford this gravy" results={filterResultsByPrice('$$$$')} /> */}
+    {/* </View> */}
+    </>
   )
 };
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 30
+    fontSize: 25
   }
 });
 
