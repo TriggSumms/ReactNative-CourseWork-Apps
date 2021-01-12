@@ -11,12 +11,12 @@ const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
       <FontAwesome5 name="searchengin" style={styles.iconStyle} />
       <TextInput
         autoCapitalize="none"
-        autoCorrect={false}
+        autoCorrect={false} //No auto correct needed
         style={styles.inputStyle}
         placeholder="Search"
         value={term}
         onChangeText={onTermChange}
-        onEndEditing={onTermSubmit}
+        onEndEditing={onTermSubmit} //initiates search to yelp API ()
       />
     </View>
   );
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginHorizontal: 15,
     flexDirection: 'row',
-    marginBottom: 10
+    marginBottom: 20
   },
   inputStyle: {
     flex: 1,
