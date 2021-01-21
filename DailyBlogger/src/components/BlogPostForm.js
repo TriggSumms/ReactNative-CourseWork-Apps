@@ -5,6 +5,9 @@ import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
 
 //EZ form for creation of a post by user, can be utilized via edit/create screens
 
+
+// intital/default value is utilized in the edit screen
+
 const BlogPostForm = ({ onSubmit, initialValues }) => {
   const [title, setTitle] = useState(initialValues.title);
   const [content, setContent] = useState(initialValues.content);
@@ -28,6 +31,8 @@ const BlogPostForm = ({ onSubmit, initialValues }) => {
   );
 };
 
+
+//The shell has been made...used to fill in BlogPostForm as empty strings in the 'create' route
 BlogPostForm.defaultProps = {
   initialValues: {
     title: '',

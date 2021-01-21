@@ -7,19 +7,21 @@ import jsonServer from '../api/jsonServer';
 //1stArgument = state variable...array of blog posts, 2ndArgument = the action
 
 
-
+//Redux BABY!!!
 const blogReducer = (state, action) => {
 
   switch (action.type) {
     case 'get_blogposts':
       return action.payload;
     case 'edit_blogpost':
+      //mapping through the current BlogPost array
       return state.map(blogPost => {
-        return blogPost.id === action.payload.id ? action.payload : blogPost;
+        return blogPost.id === action.payload.id
+          ? action.payload : blogPost;
       });
     case 'delete_blogpost':
       return state.filter(blogPost => blogPost.id !== action.payload);
-       //removes the payload or 'id'
+    //removes the payload or 'id'
     default:
       return state;
   }
@@ -39,6 +41,7 @@ const addBlogPost = dispatch => {
   return async (title, content, callback) => {
     await jsonServer.post('/blogposts', { title, content });
 
+    //only runs if
     if (callback) {
       callback();
     }
@@ -47,15 +50,19 @@ const addBlogPost = dispatch => {
 
 const deleteBlogPost = dispatch => {
   return async id => {
+
     await jsonServer.delete(`/blogposts/${id}`);
 
-    dispatch({ type: 'delete_blogpost',
-               payload: id });
+    dispatch({
+      type: 'delete_blogpost',
+      payload: id
+    });
   };
 };
 
 const editBlogPost = dispatch => {
   return async (id, title, content, callback) => {
+    //First arg(id) and second arg new(title/content)
     await jsonServer.put(`/blogposts/${id}`, { title, content });
 
     dispatch({
@@ -69,6 +76,6 @@ const editBlogPost = dispatch => {
 };
 
 export const { Context, Provider } = createDataContext(
-  blogReducer,{ addBlogPost, deleteBlogPost, editBlogPost, getBlogPosts },
+  blogReducer, { addBlogPost, deleteBlogPost, editBlogPost, getBlogPosts },
   []
 );

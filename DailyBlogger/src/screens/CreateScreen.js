@@ -14,6 +14,7 @@ const CreateScreen = ({ navigation }) => {
     <BlogPostForm
       onSubmit={(title, content) => {
         //after saving the blog post we will push the user via 'hist'/'navigate' back to the index/home route pg
+        
         addBlogPost(title, content, () => navigation.navigate('Index'));
       }}
     />

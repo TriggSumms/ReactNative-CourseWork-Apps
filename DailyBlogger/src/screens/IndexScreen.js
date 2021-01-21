@@ -17,15 +17,17 @@ const IndexScreen = ({ navigation }) => {
     getBlogPosts();
 
     console.log("testingposts1", getBlogPosts)
-
+    //navigation rule: anytime index screen is tha primary on the device, it will fetch the api's data....."gaining focus"
     const listener = navigation.addListener('didFocus', () => {
       getBlogPosts();
     });
-
+    //ALERT: MEMORY LEAK....unless we clean up
+    // Cleans up after the listener, invokes if the index screen is not primary/visible
     return () => {
       listener.remove();
     };
   }, []);
+
 
   return (
     <View>
@@ -57,25 +59,25 @@ const IndexScreen = ({ navigation }) => {
 
 //Sending through a react eleement, as the nav bar icon....route'd to 'create'
 
-IndexScreen.navigationOptions = ({ navigation }) => {
-  return {
-    headerRight: () => (
-      <TouchableOpacity onPress={() => navigation.navigate('Create')}>
-        <Feather name="plus" size={30} />
-      </TouchableOpacity>
-    ),
-  };
-}
-
 // IndexScreen.navigationOptions = ({ navigation }) => {
 //   return {
-//     headerRight: (
+//     headerRight: () => (
 //       <TouchableOpacity onPress={() => navigation.navigate('Create')}>
 //         <Feather name="plus" size={30} />
 //       </TouchableOpacity>
-//     )
+//     ),
 //   };
-// };
+// }
+
+IndexScreen.navigationOptions = ({ navigation }) => {
+  return {
+    headerRight: (
+      <TouchableOpacity onPress={() => navigation.navigate('Create')}>
+        <Feather name="plus" size={30} />
+      </TouchableOpacity>
+    )
+  };
+};
 
 const styles = StyleSheet.create({
   row: {

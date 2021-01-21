@@ -22,27 +22,27 @@ const ShowScreen = ({ navigation }) => {
 };
 
 ShowScreen.navigationOptions = ({ navigation }) => {
-//   return {
-//     headerRight: (
-//       <TouchableOpacity
-//         onPress={() =>
-//           navigation.navigate('Edit', { id: navigation.getParam('id') })
-//         }
-//       >
-//         <EvilIcons name="pencil" size={35} />
-//       </TouchableOpacity>
-//     )
-//   };
-//};
+  return {
+    headerRight: (
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate('Edit', { id: navigation.getParam('id') })
+        }
+      >
+        <EvilIcons name="pencil" size={35} />
+      </TouchableOpacity>
+    )
+  };
+};
 //Provided because of above depreciation 
-return {
-  headerRight: () => (
-    <TouchableOpacity onPress={() => navigation.navigate('Edit')}>
-      <EvilIcons name="pencil" size={35} />
-    </TouchableOpacity>
-  ),
-};
-};
+// return {
+//   headerRight: () => (
+//     <TouchableOpacity onPress={() => navigation.navigate('Edit')}>
+//       <EvilIcons name="pencil" size={35} />
+//     </TouchableOpacity>
+//   ),
+// };
+// };
 
 const styles = StyleSheet.create({});
 

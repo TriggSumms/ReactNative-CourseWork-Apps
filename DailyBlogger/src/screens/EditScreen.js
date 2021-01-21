@@ -4,6 +4,7 @@ import { Context } from '../context/BlogContext';
 import BlogPostForm from '../components/BlogPostForm';
 
 const EditScreen = ({ navigation }) => {
+  
   const id = navigation.getParam('id');
   const { state, editBlogPost } = useContext(Context);
 
@@ -13,8 +14,10 @@ const EditScreen = ({ navigation }) => {
 
   return (
     <BlogPostForm
+    //default props given as starting value 
       initialValues={{ title: blogPost.title, content: blogPost.content }}
       onSubmit={(title, content) => {
+        //'pop' helper pushes user to previous screen 
         editBlogPost(id, title, content, () => navigation.pop());
       }}
     />
