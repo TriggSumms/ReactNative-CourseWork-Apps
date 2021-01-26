@@ -3,7 +3,7 @@ import jsonServer from '../api/jsonServer';
 
 
 
-// Example below use's the reducer function again from prior examples. Passing in an object through 'type' to change the state and a 'payload' describe change to the counter.
+// Example below use's the reducer function again from prior examples. Passing in an object through 'type' to change the state and a 'payload' to describe change to the counter.
 //1stArgument = state variable...array of blog posts, 2ndArgument = the action
 
 
