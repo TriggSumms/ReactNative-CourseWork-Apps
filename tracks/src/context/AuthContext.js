@@ -3,6 +3,9 @@ import createDataContext from './createDataContext';
 import trackerApi from '../api/tracker';
 import { navigate } from '../navigationRef';
 
+
+//err.messages setup via track-server file
+
 const authReducer = (state, action) => {
     switch (action.type) {
         case 'add_error':
@@ -23,13 +26,15 @@ const authReducer = (state, action) => {
 const signup = dispatch => async ({ email, password }) => {
     try {
         const response = await trackerApi.post('/signup', { email, password });
+        //console.log('JTW test1', response.data)
         await AsyncStorage.setItem('token', response.data.token);
         dispatch({ type: 'signin', payload: response.data.token });
+        //console.log('JTW test2', response.data)
         //If you sign up, you get the golden ticket and your state allows you to navigate to the next "true/auth'd" route
         navigate('TrackList');
     } catch (err) {
         dispatch({
-            type: 'add_error',
+            type: 'add_error', 
             payload: 'Wowza, Something went wrong with sign up...*Try again'
         });
     }

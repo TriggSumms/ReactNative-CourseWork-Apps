@@ -8,11 +8,12 @@ import NavLink from '../components/NavLink';
 
 
 const SignupScreen = ({ navigation }) => {
-     const { state, signup, clearErrorMessage } = useContext(AuthContext);
-//state is what needs to be retained/changed/gained...email/password
+    const { state, signup, clearErrorMessage } = useContext(AuthContext);
+    //state is what needs to be retained/changed/gained...email/password
     return (
         <>
             {/* <Spacer> <Text>Sign up Babi</Text></Spacer>  <Input label="Email" value={email} onChangeText={setEmail} autoCapitalize= "none" autoCorrect={false} /><Spacer /> <Input label="Password" /><Spacer /><Spacer><Button title="Sign Up" /></Spacer>  */}
+            {/* TESTING: {state.errorMessage ? <Text>{state.errorMessage}</Text> : null} */}
 
             <View style={styles.container}>
                 <NavigationEvents onWillBlur={clearErrorMessage} />

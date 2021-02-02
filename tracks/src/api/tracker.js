@@ -3,11 +3,12 @@ import { AsyncStorage } from 'react-native';
 
 let url;
 if (__DEV__) {
-  url = 'http://cd14184c.ngrok.io';
+  url = '  http://0a2a7fc2a914.ngrok.io';
 } else {
-  url = 'https://sleepy-savannah-10606.herokuapp.com';
+ // url = 'https://POSSIBLE LINKAGE TO TRIGG.herokuapp.com';
 }
 
+//implement axios with NGROK....*2hour timer
 const instance = axios.create({
   baseURL: url
 });
