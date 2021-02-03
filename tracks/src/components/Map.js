@@ -17,6 +17,8 @@ const Map = () => {
       style={styles.map}
       initialRegion={{
         ...currentLocation.coords,
+        //latitude: ,
+        //longitude: ,
         latitudeDelta: 0.01,
         longitudeDelta: 0.01
       }}
@@ -27,11 +29,13 @@ const Map = () => {
         strokeColor="rgba(158, 158, 255, 1.0)"
         fillColor="rgba(158, 158, 255, 0.3)"
       />
+      {/* Polyline is a react component (*draw-able line) shown on the actual mapview element.....*map'd array of coordinates creates drawn line */}
       <Polyline coordinates={locations.map(loc => loc.coords)} />
     </MapView>
   );
 };
 
+//fully featured map screen parameters (IOS=apple maps)(android=google maps)
 const styles = StyleSheet.create({
   map: {
     height: 300

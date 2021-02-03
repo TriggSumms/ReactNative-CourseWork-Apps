@@ -32,6 +32,17 @@ const TrackCreateScreen = ({ isFocused }) => {
     );
 };
 
+// const startWatching = async () => {
+//     try {
+//       const { granted } = await requestPermissionsAsync();
+//       if (!granted) {
+//         throw new Error('Location permission not granted');
+//       }
+//     } catch (e) {
+//       setErr(e);
+//     }
+//   };
+
 TrackCreateScreen.navigationOptions = {
     title: 'Add Track',
     tabBarIcon: <FontAwesome name="plus" size={20} />
