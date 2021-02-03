@@ -16,8 +16,8 @@ import TrackCreateScreen from './src/screens/TrackCreateScreen';
 import TrackDetailScreen from './src/screens/TrackDetailScreen';
 import TrackListScreen from './src/screens/TrackListScreen';
 import { Provider as AuthProvider } from './src/context/AuthContext';
-// import { setNavigator } from './src/navigationRef';
-// import ResolveAuthScreen from './src/screens/ResolveAuthScreen';
+import { setNavigator } from './src/navigationRef';
+import ResolveAuthScreen from './src/screens/ResolveAuthScreen';
 // import { Provider as LocationProvider } from './src/context/LocationContext';
 // import { Provider as TrackProvider } from './src/context/TrackContext';
 // import { FontAwesome } from '@expo/vector-icons';
@@ -60,6 +60,7 @@ export default () => {
       <LocationProvider>
         <AuthProvider>
           <App
+          //We need to give access to the navigator helper function 
             ref={navigator => {
               setNavigator(navigator);
             }}

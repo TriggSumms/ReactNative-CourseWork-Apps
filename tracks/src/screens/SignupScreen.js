@@ -21,6 +21,7 @@ const SignupScreen = ({ navigation }) => {
                     headerText="Sign Up for ThaDistance Pers'i App"
                     errorMessage={state.errorMessage}
                     submitButtonText="Sign Up"
+                    //anytime it gets called
                     onSubmit={signup}
                 />
                 <NavLink
