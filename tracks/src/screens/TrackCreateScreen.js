@@ -5,15 +5,20 @@ import { Text } from 'react-native-elements';
 import { SafeAreaView, withNavigationFocus } from 'react-navigation';
 //import { requestPermissionsAsync} from 'expo-location';
 // import React, { useEffect, useState } from 'react';
+// import { Accuracy, watchPositionAsync } from 'expo-location';
 import Map from '../components/Map';
 import { Context as LocationContext } from '../context/LocationContext';
 import useLocation from '../hooks/useLocation';
 import TrackForm from '../components/TrackForm';
 import { FontAwesome } from '@expo/vector-icons';
-import { Accuracy, watchPositionAsync } from 'expo-location';
+
+
+//Is focused is the props object imported from RN's withNavigationFocus....it allows for an event listener to tell if the screen is focused....through a [bit]
+
 
 const TrackCreateScreen = ({ isFocused }) => {
     const {
+        //state declared to recording....."state.recording"
         state: { recording },
         addLocation
     } = useContext(LocationContext);
@@ -21,13 +26,14 @@ const TrackCreateScreen = ({ isFocused }) => {
         location => {
             addLocation(location, recording);
         },
-        [recording]
+        [recording] //just an array of the current recordings and it will rebuild if there is a change 
+        //basically just returning the callback v1 until a new value is given in the array....then a new function is built 
     );
     const [err] = useLocation(isFocused || recording, callback);
 
     return (
         <SafeAreaView forceInset={{ top: 'always' }}>
-            <Text h2>Create a Quick Track</Text>
+            <Text h2>Create a Quick lil Track</Text>
             <Map />
             {err ? <Text>Please enable location services</Text> : null}
             <TrackForm />
@@ -55,8 +61,10 @@ const TrackCreateScreen = ({ isFocused }) => {
 //       setErr(e);
 //     }  };
 
+
+//navi bar styling
 TrackCreateScreen.navigationOptions = {
-    title: 'Add Track',
+    title: 'Add a New Track Babi',
     tabBarIcon: <FontAwesome name="plus" size={20} />
 };
 

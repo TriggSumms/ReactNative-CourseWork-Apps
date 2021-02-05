@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { AsyncStorage } from 'react-native';
+// import { AsyncStorage } from 'react-native';
+import { AsyncStorage } from 'react-native-async-storage';
 
 let url;
 if (__DEV__) {
@@ -13,6 +14,8 @@ const instance = axios.create({
   baseURL: url
 });
 
+
+//Interesting token grabbing function to impend tokens to any request ever made to axios.....(*so crazy)
 instance.interceptors.request.use(
   async config => {
     const token = await AsyncStorage.getItem('token');
@@ -21,6 +24,7 @@ instance.interceptors.request.use(
     }
     return config;
   },
+  //boilerplate err code
   err => {
     return Promise.reject(err);
   }

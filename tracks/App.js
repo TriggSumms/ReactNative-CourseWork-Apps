@@ -18,9 +18,9 @@ import TrackListScreen from './src/screens/TrackListScreen';
 import { Provider as AuthProvider } from './src/context/AuthContext';
 import { setNavigator } from './src/navigationRef';
 import ResolveAuthScreen from './src/screens/ResolveAuthScreen';
-// import { Provider as LocationProvider } from './src/context/LocationContext';
-// import { Provider as TrackProvider } from './src/context/TrackContext';
-// import { FontAwesome } from '@expo/vector-icons';
+import { Provider as LocationProvider } from './src/context/LocationContext';
+import { Provider as TrackProvider } from './src/context/TrackContext';
+import { FontAwesome } from '@expo/vector-icons';
 
 
 //First step is to make a user sign in/up ....creating a navigation or logical user "flow"
@@ -47,10 +47,13 @@ const trackListFlow = createStackNavigator({
   TrackDetail: TrackDetailScreen
 });
 
+
+//bottom tab navi bar styling 
 trackListFlow.navigationOptions = {
   title: 'Tracks',
   tabBarIcon: <FontAwesome name="th-list" size={20} />
 };
+
 
 
 
