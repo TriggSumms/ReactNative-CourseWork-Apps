@@ -1,8 +1,9 @@
 //import '../_mockLocation';
 import React, { useContext, useCallback } from 'react';
-import { StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Text } from 'react-native-elements';
 import { SafeAreaView, withNavigationFocus } from 'react-navigation';
+//import { withNavigationFocus } from 'react-navigation';
 //import { requestPermissionsAsync} from 'expo-location';
 // import React, { useEffect, useState } from 'react';
 // import { Accuracy, watchPositionAsync } from 'expo-location';
@@ -32,11 +33,13 @@ const TrackCreateScreen = ({ isFocused }) => {
     const [err] = useLocation(isFocused || recording, callback);
 
     return (
-        <SafeAreaView forceInset={{ top: 'always' }}>
+         <SafeAreaView forceInset={{ top: 'always' }}>
+            {/* <View> */}
             <Text h2>Create a Quick lil Track</Text>
             <Map />
             {err ? <Text>Please enable location services</Text> : null}
             <TrackForm />
+            {/* </View> */}
         </SafeAreaView>
     );
 };

@@ -1,10 +1,11 @@
 import axios from 'axios';
-// import { AsyncStorage } from 'react-native';
-import { AsyncStorage } from 'react-native-async-storage';
+//import { AsyncStorage } from '@react-native-community/async-storage';
+// import { AsyncStorage } from 'react-native-async-storage';
+import { AsyncStorage } from 'react-native';
 
 let url;
 if (__DEV__) {
-  url = '  http://0a2a7fc2a914.ngrok.io';
+  url = 'http://b8dfef8620d0.ngrok.io';
 } else {
  // url = 'https://POSSIBLE LINKAGE TO TRIGG.herokuapp.com';
 }
