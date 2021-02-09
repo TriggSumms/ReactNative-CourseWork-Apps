@@ -13,8 +13,12 @@ app.use(bodyParser.json());
 app.use(authRoutes);
 app.use(trackRoutes);
 
-const mongoUri =
-  'mongodb+srv://admin:passwordpassword@cluster0-8fzga.mongodb.net/test?retryWrites=true&w=majority';
+const mongoUri = 'mongodb+srv://Admin:password@@clusterfordistanceapp.e8g23.mongodb.net/<dbname>?retryWrites=true&w=majority';
+if (!mongoUri) {
+  throw new Error(
+    `MongoURI was not supplied.  Make sure you watch the video on setting up Mongo DB!`
+  );
+}
 mongoose.connect(mongoUri, {
   useNewUrlParser: true,
   useCreateIndex: true
@@ -30,7 +34,6 @@ app.get('/', requireAuth, (req, res) => {
   res.send(`Your email: ${req.user.email}`);
 });
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
+app.listen(3000, () => {
+  console.log('Listening on port 3000');
 });
