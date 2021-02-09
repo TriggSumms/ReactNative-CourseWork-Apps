@@ -7,6 +7,8 @@ const AuthForm = ({ headerText, errorMessage, onSubmit, submitButtonText }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  //FORM COMP FOR SIGN UP
+
   return (
     <>
       <Spacer>
@@ -15,6 +17,7 @@ const AuthForm = ({ headerText, errorMessage, onSubmit, submitButtonText }) => {
       <Input
         label="Email"
         value={email}
+        //OnChangeText
         onChangeText={setEmail}
         autoCapitalize="none"
         autoCorrect={false}
@@ -28,9 +31,11 @@ const AuthForm = ({ headerText, errorMessage, onSubmit, submitButtonText }) => {
         autoCapitalize="none"
         autoCorrect={false}
       />
+      {/* Simple error tern  */}
       {errorMessage ? (
         <Text style={styles.errorMessage}>{errorMessage}</Text>
       ) : null}
+
       <Spacer>
         <Button
           title={submitButtonText}
@@ -43,7 +48,7 @@ const AuthForm = ({ headerText, errorMessage, onSubmit, submitButtonText }) => {
 
 const styles = StyleSheet.create({
   errorMessage: {
-    fontSize: 16,
+    fontSize: 20,
     color: 'red',
     marginLeft: 15,
     marginTop: 15

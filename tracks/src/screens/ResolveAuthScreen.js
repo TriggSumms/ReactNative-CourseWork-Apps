@@ -1,6 +1,9 @@
 import React, { useEffect, useContext } from 'react';
 import { Context as AuthContext } from '../context/AuthContext';
 
+
+//Utilizing this screen to run our token checking action
+
 const ResolveAuthScreen = () => {
   const { tryLocalSignin } = useContext(AuthContext);
 
@@ -8,6 +11,7 @@ const ResolveAuthScreen = () => {
     tryLocalSignin();
   }, []);
 
+  //shows nothing
   return null;
 };
 

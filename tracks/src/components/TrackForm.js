@@ -7,11 +7,15 @@ import useSaveTrack from '../hooks/useSaveTrack';
 const TrackForm = () => {
   const {
     state: { name, recording, locations },
+    //How we turn it into a controlled input...gotta have that current state above to change the value
     startRecording,
     stopRecording,
     changeName
   } = useContext(LocationContext);
   const [saveTrack] = useSaveTrack();
+
+
+  //EZ form component , reveals the stop button if start is in use
 
   return (
     <>
@@ -23,12 +27,14 @@ const TrackForm = () => {
         />
       </Spacer>
       <Spacer>
+          {/* IF RECORDING  */}
         {recording ? (
           <Button title="Stop" onPress={stopRecording} />
         ) : (
           <Button title="Start Recording" onPress={startRecording} />
         )}
       </Spacer>
+      {/* ONCE STOPPED, BUTTON APPEARS TO SAVE YOUR TRACK....*if location stops increasing */}
       <Spacer>
         {!recording && locations.length ? (
           <Button title="Save Recording" onPress={saveTrack} />

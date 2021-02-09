@@ -10,7 +10,11 @@ const SigninScreen = () => {
 
   return (
     <View style={styles.container}>
-      <NavigationEvents onWillBlur={clearErrorMessage} />
+      {/* onWillBlur, I believe allows synchronous navigation between signin/signup */}
+      <NavigationEvents onWillBlur={clearErrorMessage} />  {/* When were about to navigate away from the screen  */}
+      {/* <NavigationEvents onWillFocus={clearErrorMessage} /> When we are about to navigate, the instant*/}
+      {/* <NavigationEvents onDidFocus={clearErrorMessage} /> Call'd when a completion of navigation is onscreen*/}
+      {/* <NavigationEvents onDidBlur={clearErrorMessage} />  Buggy */}
       <AuthForm
         headerText="Sign In to Your Account"
         errorMessage={state.errorMessage}
@@ -25,8 +29,12 @@ const SigninScreen = () => {
   );
 };
 
-SigninScreen.navigationOptions = {
-  header: null
+
+SigninScreen.navigationOptions = () => {
+  return {
+    //v39
+    headerShown: false,
+  };
 };
 
 const styles = StyleSheet.create({

@@ -10,11 +10,14 @@ const AccountScreen = () => {
   const { signout } = useContext(AuthContext);
 
   return (
+    //SafeAreaView is a react native element that makes sure your content doesnt render inside/overlay the status bar of youer device 
     <SafeAreaView forceInset={{ top: 'always' }}>
+    // <View>
       <Text style={{ fontSize: 48 }}>AccountScreen</Text>
       <Spacer>
         <Button title="Sign Out" onPress={signout} />
       </Spacer>
+      // </View>
     </SafeAreaView>
   );
 };
